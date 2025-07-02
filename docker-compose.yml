@@ -1,0 +1,12 @@
+services:
+  app:
+    build: . # constrói a imagem a partir do dockerfile na raiz do projeto
+    container_name: api # nome do container
+    ports:
+      # mapeia a porta 8000 do host para a porta 8000 o container
+      - 8000:8000
+    volumes:
+      - .:/app
+      # monta o diretório atual (onde está seu código) em /app dentro do container
+      # isso é ótimo para desenvolvimento, pois as alterações no código são refletidas
+      # automaticamente no container devido ao --reload do uvicorn
